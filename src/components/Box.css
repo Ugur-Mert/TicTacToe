@@ -2,7 +2,8 @@ button {
   width: 100px;
   height: 100px;
   margin: 10px;
-  font-size: 3rem;
+  font-size: 5rem;
+  font-weight: bold;
 }
 
 .button-x {
