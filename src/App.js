@@ -59,7 +59,7 @@ export default function App() {
       setScore({ ...score, scoreX });
       toast("Winner X!", {
         icon: "🏆",
-        className: "message",
+        className: `message-${winner}`,
       });
       resetBoard();
       setCount(0);
@@ -68,9 +68,9 @@ export default function App() {
       let { scoreO } = score;
       scoreO = scoreO + 1;
       setScore({ ...score, scoreO });
-      toast("Winner O!", {
+      toast.error("Winner O!", {
         icon: "🏆",
-        className: "message",
+        className: `message-${winner}`,
       });
       resetBoard();
       setCount(0);

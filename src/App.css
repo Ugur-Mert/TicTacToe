@@ -57,11 +57,27 @@ body {
   font-size: 1.5rem;
 }
 
-.message {
+.message-X {
   width: 200px !important;
   height: auto;
   font-size: 2rem;
   background-color: green !important;
+  color: white !important;
+}
+
+.message-O {
+  width: 200px !important;
+  height: auto;
+  font-size: 2rem;
+  background-color: red !important;
+  color: white !important;
+}
+
+.message {
+  width: 200px !important;
+  height: auto;
+  font-size: 2rem;
+  background-color: rgb(205, 167, 96) !important;
   color: white !important;
 }
 
