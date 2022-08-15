@@ -1,0 +1,14 @@
+button {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  font-size: 3rem;
+}
+
+.button-x {
+  color: green;
+}
+
+.button-o {
+  color: red;
+}
