@@ -22,11 +22,23 @@ export default function App() {
 
   const [score, setScore] = useState({ scoreX: 0, scoreO: 0 });
 
+  const [count, setCount] = useState(0);
+
+  const [winnerPlayer, setWinnerPlayer] = useState("");
+
   function resetBoard() {
     setBoard(Array(9).fill(null));
+    setCount(0);
+  }
+
+  function handleReset() {
+    setBoard(Array(9).fill(null));
+    setCount(0);
+    setScore({ scoreX: 0, scoreO: 0 });
   }
 
   function boxClick(boxIndex) {
+    setCount(count + 1);
     const updatedBoard = board.map((value, index) => {
       if (index === boxIndex) {
         return player ? "X" : "O";
@@ -37,6 +49,7 @@ export default function App() {
 
     setBoard(updatedBoard);
     setPlayer(!player);
+    console.log(count);
 
     const winner = winnerController(updatedBoard);
 
@@ -49,6 +62,8 @@ export default function App() {
         className: "message",
       });
       resetBoard();
+      setCount(0);
+      setWinnerPlayer(winner);
     } else if (winner === "O") {
       let { scoreO } = score;
       scoreO = scoreO + 1;
@@ -57,6 +72,15 @@ export default function App() {
         icon: "🏆",
         className: "message",
       });
+      resetBoard();
+      setCount(0);
+      setWinnerPlayer(winner);
+    } else if (count === 8 && winner !== "X" && winner !== "O") {
+      toast("DRAW!", {
+        icon: "🤝",
+        className: "message",
+      });
+      setWinnerPlayer("DRAW!");
       resetBoard();
     }
 
@@ -83,12 +107,26 @@ export default function App() {
         <p>Player X : {score.scoreX}</p>
         <p>Player O : {score.scoreO} </p>
       </div>
+      <div className="game-board">
+        <Board board={board} onClick={boxClick} />
+      </div>
 
-      <Board board={board} onClick={boxClick} />
+      <div className="result">
+        {winnerPlayer === "DRAW!" ? (
+          <p>DRAW!</p>
+        ) : (
+          <p> Winner: {winnerPlayer}</p>
+        )}
+      </div>
+
       <div className="section-reset">
         <button className="reset-button" onClick={resetBoard}>
           Reset Board
         </button>
+        <button className="reset-button" onClick={handleReset}>
+          Reset Game
+        </button>
+
         <Toaster />
       </div>
     </div>

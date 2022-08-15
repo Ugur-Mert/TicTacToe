@@ -4,6 +4,7 @@ button {
   margin: 10px;
   font-size: 5rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .button-x {
