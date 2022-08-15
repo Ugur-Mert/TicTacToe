@@ -100,25 +100,32 @@ export default function App() {
     <div className="App">
       <div className="header">
         <h1>Tic Tac Toe !</h1>
-        <p>Player: {player ? "X" : "O"}</p>
+        <p>Turn : {player ? "X" : "O"}</p>
       </div>
 
       <div className="score-board">
-        <p>Player X : {score.scoreX}</p>
-        <p>Player O : {score.scoreO} </p>
+        <p>
+          Player <span style={{ color: "green", fontWeight: "bold" }}>X</span> :{" "}
+          {score.scoreX}
+        </p>
+        <p>
+          Player <span style={{ color: "red", fontWeight: "bold" }}>O</span> :{" "}
+          {score.scoreO}{" "}
+        </p>
       </div>
-      <div className="game-board">
-        <Board board={board} onClick={boxClick} />
-      </div>
+      <div className="game-border">
+        <div className="game-board">
+          <Board board={board} onClick={boxClick} />
+        </div>
 
-      <div className="result">
-        {winnerPlayer === "DRAW!" ? (
-          <p>DRAW!</p>
-        ) : (
-          <p> Winner: {winnerPlayer}</p>
-        )}
+        <div className="result">
+          {winnerPlayer === "DRAW!" ? (
+            <p>DRAW!</p>
+          ) : (
+            <p> Winner: {winnerPlayer}</p>
+          )}
+        </div>
       </div>
-
       <div className="section-reset">
         <button className="reset-button" onClick={resetBoard}>
           Reset Board
@@ -126,7 +133,6 @@ export default function App() {
         <button className="reset-button" onClick={handleReset}>
           Reset Game
         </button>
-
         <Toaster />
       </div>
     </div>
