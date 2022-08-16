@@ -6,7 +6,7 @@ export default function Box({ value, onClick }) {
   const element = value === "X" ? "button-x" : "button-o";
 
   return (
-    <div>
+    <div className="box-border">
       <button className={element} onClick={onClick}>
         {value}
       </button>

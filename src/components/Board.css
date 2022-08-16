@@ -5,8 +5,9 @@ body {
 
 .board {
   display: grid;
-  gap: "5px";
   justify-items: center;
-  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  gap: 10px !important;
+  grid-template-columns: repeat(3, max-content);
   width: 400px;
 }

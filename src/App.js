@@ -13,7 +13,7 @@ export default function App() {
     [1, 4, 7],
     [2, 4, 6],
     [0, 3, 6],
-    [2, 4, 8],
+    [2, 5, 8],
   ];
 
   const [board, setBoard] = useState(Array(9).fill(null));
