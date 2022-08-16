@@ -100,17 +100,18 @@ export default function App() {
     <div className="App">
       <div className="header">
         <h1>Tic Tac Toe !</h1>
-        <p>Turn : {player ? "X" : "O"}</p>
+        <p style={{ marginTop: "10px" }}>Turn : {player ? "X" : "O"}</p>
       </div>
 
       <div className="score-board">
         <p>
-          Player <span style={{ color: "green", fontWeight: "bold" }}>X</span> :{" "}
+          {player ? "♦" : ""} Player{" "}
+          <span style={{ color: "green", fontWeight: "bold" }}>X</span> :{" "}
           {score.scoreX}
         </p>
         <p>
-          Player <span style={{ color: "red", fontWeight: "bold" }}>O</span> :{" "}
-          {score.scoreO}{" "}
+          Player <span style={{ color: "red", fontWeight: "bold" }}>O</span> :
+          {score.scoreO} {player ? "" : "♦"}
         </p>
       </div>
       <div className="game-border">
